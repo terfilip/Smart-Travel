@@ -10,8 +10,8 @@
 .container {
 }
 
-/*all stuff for row-intro*/
-.row-intro {
+/*all stuff for row-header*/
+.row-header {
   padding-top: 25px;
   text-align: center;
   color: #620E0B;
@@ -27,6 +27,17 @@ h1 {
   color: #28007F;
 }
 
+/*all the stuff for row-intro*/
+.row-intro {
+  background-color: #667F70;
+  color: #CADAFF;
+}
+
+.info-text {
+  text-align: center;
+  font-size: 24px;
+  padding: 20px 0;
+}
 
 /*all stuff for row-data*/
 .row-data {
@@ -37,9 +48,19 @@ h1 {
   background-color: #A3CCB3;
 }
 
-.column {
-  width: 25%;
+ul {
+  list-style-type: none;
 }
+
+li {
+  display: inline;
+}
+
+.column {
+ display: inline-block;
+ width: 25%;
+}
+
 
 /*all stuff for row-footer*/
 .row-footer {
@@ -48,4 +69,11 @@ h1 {
   font-weight: normal;
   font-style: normal;
   background-color: #667F70;
+  height: 100px;
+}
+
+.footer-description {
+  padding-top: 10px;
+  padding: 0 70px;
+  text-align: center;
 }
