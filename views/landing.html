@@ -32,26 +32,50 @@
 
       <div class="row">
         <div class="row-data">
-          <ul>
-            <li>
-              <div class="column column-1">
-                <h3>Your Currency?</h3>
-                <div id="curReg"></div>
-              </div>
-            </li>
-            <li>
-              <div class="column column-2">
-                <h3>Region?</h3>
-                <div id="desReg"></div>
-              </div>
-            </li>
-            <li>
-              <div class="column column-3">
-                <h3>When?</h3>
-                <div id="date"></div>
-              </div>
-            </li>
-          </ul>
+          <form action="POST">
+            <ul>
+              <li>
+                <div class="column column-1">
+                  <h3>Your Currency?</h3>
+                    <input type="currency" name="currency" placeholder="e.g GBP" class="field">
+                  <!-- <div id="curReg"></div> -->
+                </div>
+              </li>
+              <li>
+                <div class="column column-2">
+                  <h3>Region?</h3>
+                  <select>
+                    <option value="Sub Sarahan Africa">Sub Sarahan Africa</option>
+                    <option value="West Afria">West Afria</option>
+                    <option value="East Africa">East Africa</option>
+                    <option value="East Asia and Pacific">East Asia and Pacific</option>
+                    <option value="South Asia">South Asia</option>
+                    <option value="Central Asia">Central Asia</option>
+                    <option value="Central Europe and the Baltics">Central Europe and the Baltics</option>
+                    <option value="Eastern Europe">Eastern Europe</option>
+                    <option value="Western Europe">Western Europe</option>
+                    <option value="Euro Area">Euro Area</option>
+                    <option value="Middle East">Middle East</option>
+                    <option value="North Africa">North Africa</option>
+                    <option value="Andean">Andean</option>
+                    <option value="Latin American">Latin American</option>
+                    <option value="Carribean">Carribean</option>
+                    <option value="Mexica and Central America">Mexica and Central America</option>
+                    <option value="North America">North America</option>
+                    <option value="Australasia">Australasia</option>
+                  </select>
+                  <!-- <div id="desReg"></div> -->
+                </div>
+              </li>
+              <li>
+                <div class="column column-3">
+                  <h3>When?</h3>
+                  <input type="date" name="date" class="field">
+                  <!-- <div id="date"></div> -->
+                </div>
+              </li>
+            </ul>
+          </form>
         </div>
       </div>
       <div class="row">

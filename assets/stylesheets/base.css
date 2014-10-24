@@ -29,8 +29,42 @@
 
 h1 {
   font-size: 120px;
-  font-weight: thin;
   color: #28007F;
+}
+
+/*here starts responsive stuff*/
+/*tablets*/
+@media only screen and (max-width : 1087px) and (min-width: 480px) {
+  .row-image{
+    background-size: 1087px Auto ;
+  }
+
+  .row-header {
+
+  }
+}
+@media only screen and (max-width : 780px) and (min-width: 480px) {
+  h1 {
+    padding-top: 30px;
+    font-size: 80px;
+    color: #280144;
+  }
+}
+/*mobile*/
+@media only screen and (max-width : 480px) {
+  .row-image{
+    background-image: url('../images/beach_mobile.jpg');
+    background-size: Auto 250px;
+  }
+
+  .row-header {
+    height: 225px;
+  }
+  h1 {
+    font-size: 75px;
+    color: #280144;
+    margin: 5px 10px;
+  }
 }
 
 /*all the stuff for row-intro*/
@@ -51,6 +85,8 @@ h2 {
   font-size: 24px;
   font-weight: 300;
 }
+
+
 /*all stuff for row-data*/
 .row-data {
   text-align: center;
@@ -63,6 +99,7 @@ h2 {
 ul {
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
 
 li {
@@ -74,6 +111,38 @@ li {
  width: 25%;
 }
 
+h3 {
+  font-size: 28px;
+}
+
+.field {
+
+}
+
+/*tablets*/
+@media only screen and (max-width : 1087px) and (min-width: 480px) {
+
+}
+@media only screen and (max-width : 780px) and (min-width: 480px) {
+  .row-data {
+    height: 450px;
+  }
+  li {
+    display: inherit;
+    padding-bottom: 20px
+  }
+}
+/*mobile*/
+@media only screen and (max-width : 480px) {
+  .row-data {
+    height: 450px;
+  }
+
+  li {
+    display: inherit;
+    padding-bottom: 20px;
+  }
+}
 
 /*all stuff for row-footer*/
 .row-footer {
@@ -93,4 +162,16 @@ li {
 h4 {
   margin: 0;
   font-weight: 100;
+}
+
+@media only screen and (max-width : 780px) and (min-width: 480px) {
+  .row-footer {
+    height: auto;
+  }
+}
+/*mobile*/
+@media only screen and (max-width : 480px) {
+  .row-footer {
+    height: auto;
+  }
 }
