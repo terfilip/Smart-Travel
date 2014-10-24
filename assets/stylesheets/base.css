@@ -3,7 +3,8 @@
 .body {
   background-color: #CCFFE0;
   width: 100%;
-  height: 100%
+  height: 100%;
+  font-family: 'Lato', serif;
 }
 
 .container {
@@ -11,12 +12,19 @@
 
 /*all stuff for row-intro*/
 .row-intro {
+  padding-top: 25px;
   text-align: center;
   color: #620E0B;
-  font-family: 'Warenhaus Typenhebel';
+  font-family: 'Lato', serif;
   font-weight: normal;
   font-style: normal;
   background-color: #CCFFE0;
+}
+
+h1 {
+  font-size: 90px;
+  font-weight: normal;
+  color: #28007F;
 }
 
 
@@ -24,17 +32,19 @@
 .row-data {
   text-align: center;
   color: #620E0B;
-  font-family: 'Warenhaus Typenhebel';
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
-  background-color: #CBFFE4;
+  background-color: #A3CCB3;
+}
+
+.column {
+  width: 25%;
 }
 
 /*all stuff for row-footer*/
 .row-footer {
   text-align: center;
   color: #28007F;
-  font-family: 'Warenhaus Typenhebel';
   font-weight: normal;
   font-style: normal;
   background-color: #667F70;
