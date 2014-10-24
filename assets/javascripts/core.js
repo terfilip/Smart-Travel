@@ -30,8 +30,8 @@ function fetchDestinationRegions() {
 }
 function createCalendarInput() {
 	//This will allow selecting a widget that will allow selecting a date on which.
-	$('#date').html('');
-	$('#date').datepicker();
+	$('#date').html('Date: <input type="text" id="datepicker">');
+	$('#datepicker').datepicker({ dateFormat: 'dd/mm/yy' });
 }
 function feedRegions(data) {
 	
