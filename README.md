@@ -17,3 +17,5 @@ Master Repo for our hack make the bank team. Web app which rates travel destinat
 	0. `git fetch upstream`
 	0. `git merge upstream/master` this will update your folder to my master repo
 	0. `git push` to push the updates to your github fork
+- To run java from php (works on henriks mac in browser):
+	0. `$var = shell_exec("/usr/bin/java Classname 2>&1");` //or equvalent
