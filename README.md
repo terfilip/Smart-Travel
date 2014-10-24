@@ -6,3 +6,5 @@ Master Repo for our hack make the bank team. Web app which rates travel destinat
 
 
 NIK TEST COMMIT
+
+FILIP TEST COMMIT
