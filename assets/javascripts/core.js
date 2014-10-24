@@ -12,6 +12,7 @@ function inputSetup() {
 }
 function fetchAndShowCurrentRegions() {
 	//AJAX code to retrieve the regions
+	$('#curReg').html("<select></select>");
 	$.ajax({
 		type: 'POST',
 		url: "dummy.php",
@@ -25,9 +26,12 @@ function fetchAndShowCurrentRegions() {
 }
 function fetchDestinationRegions() {
 	//Just copy the options from the current Regions to avoid multiple PHP calls.
+	$('#desReg').html("<select></select>");
 }
 function createCalendarInput() {
 	//This will allow selecting a widget that will allow selecting a date on which.
+	$('#date').html('');
+	$('#date').datepicker();
 }
 function feedRegions(data) {
 	
