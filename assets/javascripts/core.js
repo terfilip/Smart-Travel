@@ -1,12 +1,39 @@
+//current region
+//Visiting region
+//Date where they want to go.
 $( document ).ready(function() {
-	$('body').append("HelloWorld");
+	inputSetup();
 });
 
-function fetchAndShowIP() {
+function inputSetup() {
+	fetchAndShowCurrentRegions();
+	fetchDestinationRegions();
+	createCalendarInput();
+}
+function fetchAndShowRegions() {
+	//AJAX code to retrieve the regions
+	$.ajax({
+		type: 'POST',
+		url: "dummy.php",
+		context: "Dummy context",
+		success: function(data) {
+			feedRegions(data);
+			console.log("Fetched regions");
+		}
+	});
 	
 }
-
-function fetchAndShowRegions() {
+function fetchDestinationRegions() {
+	//Just copy the options from the current Regions to avoid multiple PHP calls.
+}
+function createCalendarInput() {
+	//This will allow selecting a widget that will allow selecting a date on which.
+}
+function feedRegions(data) {
+	
+	selectRegionByIP();
+}
+function selectRegionByIP() {
 	
 }
 
@@ -14,4 +41,11 @@ function fetchAndShowCountries() {
 	
 }
 
+function searchResults() {
+	//Retrieve Current
+	//Retrieve Destination
+	//Retrieve Date
+	
+	//Show results
+}
 
