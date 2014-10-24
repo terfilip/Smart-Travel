@@ -10,7 +10,7 @@ function inputSetup() {
 	fetchDestinationRegions();
 	createCalendarInput();
 }
-function fetchAndShowRegions() {
+function fetchAndShowCurrentRegions() {
 	//AJAX code to retrieve the regions
 	$.ajax({
 		type: 'POST',
