@@ -26,10 +26,22 @@ public class Region {
 	
 	public void printCountries() {
 		for(Country c : countries) {
-			System.out.println(c.getName());
+			System.out.println(c.getName() + " " + c.getBuyingPower());
 		}
 		
 	}
+	
+	public int findCountry(String name) {
+		int i = 0;
+		for(Country c : countries) {			
+			if(c.equals(name)) {
+				System.out.println("found");
+				return i;
+			}
+			i++;
+		}
+		return 999;
+	} 
 	
 	
 	
