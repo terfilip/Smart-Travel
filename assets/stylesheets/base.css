@@ -12,13 +12,17 @@
 
 /*all stuff for row-header*/
 .row-header {
+  height: 100%;
   padding-top: 25px;
   text-align: center;
   color: #620E0B;
   font-family: 'Lato', serif;
   font-weight: normal;
   font-style: normal;
-  background-color: #CCFFE0;
+  background-image: url('../images/beach_medium.jpg');
+  background-size: 150%;
+  background-repeat: no-repeat;
+
 }
 
 h1 {
