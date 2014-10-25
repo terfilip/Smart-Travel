@@ -7,17 +7,18 @@ $('document').ready(function(){
 
   $.ajax({
     type: 'GET',
-    url: "/php/core.php",
+    url: "/smarttravel/php/core.php",
     data: {
       q:"getCountries"
     }, 
     success: function(data) {
+      console.log(data);
       $('.change[name=departure]').append(data);
     }
   });
   $.ajax({
     type: 'GET',
-    url: "/php/core.php",
+    url: "/smarttravel/php/core.php",
     data: {
       q:"getRegions"
     }, 
@@ -26,17 +27,15 @@ $('document').ready(function(){
     }
   });
 
-
-  lol = '<option value="GBP">GBP</option><option value="NOK">NOK</option><option value="USD">USD</option>';
-  $('.change[name=departure]').append(lol);
-
   $('.change').niceselect();
 })
 
 $('.search-submit').click(function() {
   $('.progress').fadeIn(150);
-
-  $('.progress').fadeOut(200);
-  $('.search').fadeOut(200);
+  setTimeout(function() {
+    $('.progress').fadeOut(200);
+    $('.search').fadeOut(200);
+  }, 3000);
+  
 
 })
