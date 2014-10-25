@@ -34,32 +34,49 @@ if($q == "getRankings") {
 	$region = $_POST['region'];
 	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6,Price as `Ranking` from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
 	$result = mysqli_query($con,$sql);
-	echo "<table>";
-	echo '<tr>';
-		echo '<th class = "Country">Country</th>';
-		echo '<th class = "CPI">CPI</th>';
-		echo '<th class = "RI">RI</th>';
-		echo '<th class = "CPPRI">CPPRI</th>';
-		echo '<th class = "GI">GI</th>';
-		echo '<th class = "RPI">RPI</th>';
-		echo '<th class = "LPP">LPP</th>';
-		echo '<th class = "Ranking">Ranking</th>';
-		echo '<th class = "Price">Price</th>';
-		echo '</tr>'; 
-	while($row = mysqli_fetch_array($result))
-	{
+
+	// echo "<table>";
+	// echo '<tr>';
+	// 	echo '<th class = "Country">Country</th>';
+	// 	echo '<th class = "CPI">CPI</th>';
+	// 	echo '<th class = "RI">RI</th>';
+	// 	echo '<th class = "CPPRI">CPPRI</th>';
+	// 	echo '<th class = "GI">GI</th>';
+	// 	echo '<th class = "RPI">RPI</th>';
+	// 	echo '<th class = "LPP">LPP</th>';
+	// 	echo '<th class = "Ranking">Ranking</th>';
+	// 	echo '<th class = "Price">Price</th>';
+	// 	echo '</tr>'; 
+	// while($row = mysqli_fetch_array($result))
+	// {
+	// 	echo '<tr>';
+	// 	echo '<td class = "Country">'.$row['Country'].'</td>';
+	// 	echo '<td class = "CPI">'.$row['CPI'].'</td>';
+	// 	echo '<td class = "RI">'.$row['RI'].'</td>';
+	// 	echo '<td class = "CPPRI">'.$row['CPPRI'].'</td>';
+	// 	echo '<td class = "GI">'.$row['GI'].'</td>';
+	// 	echo '<td class = "RPI">'.$row['RPI'].'</td>';
+	// 	echo '<td class = "LPP">'.$row['LPP'].'</td>';
+	// 	echo '<td class = "Ranking">'.$row['Ranking'].'</td>';
+	// 	echo '<td class = "Price">'.$row['Price'].'</td>';
+	// 	echo '</tr>';
+	// }
+	// echo "</table>";
+	// 
+	while($row = mysqli_fetch_array($result)) {
+		echo '<div class="destination-suggestion">';
+		echo '<div class="suggestion-content">';
+		echo '<h1>' . $row['Country'] . '</h1>';
+		echo '<table>';
 		echo '<tr>';
-		echo '<td class = "Country">'.$row['Country'].'</td>';
-		echo '<td class = "CPI">'.$row['CPI'].'</td>';
-		echo '<td class = "RI">'.$row['RI'].'</td>';
-		echo '<td class = "CPPRI">'.$row['CPPRI'].'</td>';
-		echo '<td class = "GI">'.$row['GI'].'</td>';
-		echo '<td class = "RPI">'.$row['RPI'].'</td>';
-		echo '<td class = "LPP">'.$row['LPP'].'</td>';
-		echo '<td class = "Ranking">'.$row['Ranking'].'</td>';
-		echo '<td class = "Price">'.$row['Price'].'</td>';
+			echo '<td class="what">Average Daily Spending</td>';
+			echo '<td>$'.$row['Price'].'</td>';
 		echo '</tr>';
+		echo '</table>';
+		echo '</div>';
+		echo '<div class="suggestion-view-more">';
+		echo '</div>';
+		echo '</div>';
 	}
-	echo "</table>";
 }
 ?>
