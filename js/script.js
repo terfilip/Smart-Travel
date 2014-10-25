@@ -7,7 +7,7 @@ function getCountries() {
 
   $.ajax({
     type: "POST",
-    url: "/smarttravel/php/core.php",
+    url: "./php/core.php",
     data: { 
       q: "getCountries"}
     })
@@ -23,7 +23,7 @@ function getRegions() {
 
   $.ajax({
     type: "POST",
-    url: "/smarttravel/php/core.php",
+    url: "./php/core.php",
     data: { 
       q: "getRegions"}
     })
