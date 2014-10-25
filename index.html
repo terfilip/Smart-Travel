@@ -19,28 +19,23 @@
   </head>
   <body>
 
-  <div class="body-container">
     <div class="search">
 
     <table>
       <tr class="search-alternative">
-        <td class="search-title">Currency</td>
+        <td class="search-title">Departure</td>
         <td>
-          <select class='change' name='currency'>
-            <option value="GBP">GBP</option>
-            <option value="NOK">NOK</option>
-            <option value="USD">USD</option>
+          <select class='change' name='departure'>
+          <!-- Ajax stuff comes here -->
           </select>
         </td>
       </tr>
 
       <tr class="search-alternative">
-        <td class="search-title">Region</td>
+        <td class="search-title">Destination</td>
         <td>
-          <select class='change' name='region'>
-            <option value="Europe">Europe</option>
-            <option value="America">America</option>
-            <option value="Asia">Asia</option>
+          <select class='change' name='destination'>
+          <!-- Ajax stuff comes here -->
           </select>  
         </td>
       </tr>
@@ -57,10 +52,13 @@
       </tr>
     </table>
 
-    <input type="submit" class="search-submit flat-button" value="GO" />
+    <input type="submit" class="search-submit flat-button" value="Go" />
 
     </div>
-  </div>
+    <div class="progress">
+      <div></div>
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

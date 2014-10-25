@@ -1,4 +1,4 @@
-html { 
+html, body { 
   background: url('../img/summer.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -6,13 +6,9 @@ html {
   background-size: cover;
 }
 
-.search {
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
 
 .search {
+  position: relative;
   width: 500px;
   height: 250px;
   padding: 50px 50px 50px 50px;
@@ -23,6 +19,7 @@ html {
   -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.60);
   -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.60);
   box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.60);
+  z-index: 2;
 }
 
 .search-alternative {
@@ -67,4 +64,17 @@ html {
 .search-submit {
   margin-top: 10px;
   margin-left: 350px;
+}
+.progress {
+  display: none;
+  background: rgba(0,0,0,0.50);
+  height: 40px;
+  width: 490px;
+  margin: 0 auto;
+  margin-top: -15px;
+  z-index: 100;
+  font-size: 12px;
+}
+.progress div {
+  color: #ffffff;
 }
