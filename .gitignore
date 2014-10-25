@@ -1,2 +1,3 @@
 .DS_Store
 *.class
+js/node_modules/
