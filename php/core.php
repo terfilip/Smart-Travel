@@ -33,7 +33,6 @@ if($q == "getRegions") {
 if($q == "getRankings") {
 	$region = $_POST['region'];
 	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6,Price as `Ranking` from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
-	echo $sql;
 	$result = mysqli_query($con,$sql);
 	echo "<table>";
 	echo '<tr>';
