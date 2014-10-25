@@ -1,5 +1,5 @@
 <?php
-$q = $_['GET'];
+$q = $_GET['q'];
 $host = "192.168.1.3";
 $username = "root";
 $password = "password";
