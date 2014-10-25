@@ -21,7 +21,7 @@ if($q == "getCountries") {
 	}
 }
 
-if($q == "getCountries") {
+if($q == "getReport") {
 	$sql = "Select Region from Regions";
 	mysqli_query($con,$sql);
 	while($row = mysqli_fetch_array($result))
