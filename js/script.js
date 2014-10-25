@@ -54,24 +54,27 @@ $('document').ready(function(){
 $('.search-submit').click(function() {
   $('.progress').fadeIn(150);
 
-  $.ajax({
-    type: "POST",
-    url: "./php/core.php",
-    data: { 
-      country: $('.top:eq(1)').text(),
-      region: $('.top:eq(3)').text(),
-      time: $('.top:eq(4)').text(),
-      q: "getRankings"
-    }
-    })
-    .done(function( data ) {
-      $('.progress').fadeOut(200);
-      $('.search').fadeOut(200);
-      setTimeout(function() {
-        getContentView(data);
-      }, 200);
-      
-  });
+  setTimeout(function() {
+
+    $.ajax({
+      type: "POST",
+      url: "./php/core.php",
+      data: { 
+        country: $('.top:eq(1)').text(),
+        region: $('.top:eq(3)').text(),
+        time: $('.top:eq(4)').text(),
+        q: "getRankings"
+      }
+      })
+      .done(function( data ) {
+        $('.progress').fadeOut(200);
+        $('.search').fadeOut(200);
+        setTimeout(function() {
+          getContentView(data);
+        }, 200);
+        
+    });
+  }, 150);
 
 })
 
@@ -80,3 +83,9 @@ function getContentView(data) {
   $('.content-view').fadeIn(200);
   $('#cardlist').html(data);
 }
+
+$('.suggestion-view-more').hover(function() {
+  console.log(':)');
+}, function() {
+  console.log(':(');
+});
