@@ -88,8 +88,7 @@ if($q == "getRankings") {
       echo '</tr>';
       echo '</table>';
       echo '</div>';
-      echo '<div class="suggestion-view-more">';
-      echo '</div>';
+      echo '<div class="suggestion-view-more"><a class="click-meh"></a></div>';
       echo '</div>';
     }
   } else {
@@ -121,8 +120,7 @@ if($q == "getRankings") {
       echo '</tr>';
       echo '</table>';
       echo '</div>';
-      echo '<div class="suggestion-view-more">';
-      echo '</div>';
+      echo '<div class="suggestion-view-more"></div>';
       echo '</div>';
     }
    }
