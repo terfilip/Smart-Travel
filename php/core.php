@@ -102,7 +102,8 @@ if($q == "getRankings") {
       echo '<table>';
       echo '<tr>';
         echo '<td class="what">Average Daily Spending</td>';
-        echo '<td>'.number_format($resVal,2).' '.$originCurrency.' (You\'re Saving: '.number_format(($cur_Price-$resVal),2).' '.$originCurrency.')</td>';
+        echo '<td>'.number_format($resVal,2).' '.$originCurrency;
+        echo '<td> Saving '.number_format(($cur_Price-$resVal),2).' '.$originCurrency.'</td>';
       echo '</tr>';
       echo '<tr>';
         echo '<td class="what">Predicted Food Holiday Spending</td>';
