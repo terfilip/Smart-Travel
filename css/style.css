@@ -159,3 +159,11 @@ html, body {
   width: 35px;
   display: block;
 }
+
+.login-submit {
+  margin-top: 10px;
+  margin-right: 10px;
+  position: fixed;
+  right: 10px;
+  top:10px;
+}
