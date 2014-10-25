@@ -1,8 +1,8 @@
 <?php
 $q = $_POST['q'];
-$host = "192.168.50.239";
-$username = "root";
-$password = "password";
+$host = "http://178.62.105.247/";
+$username = "hack";
+$password = "hack";
 $db = "hackathon";
 $con = mysqli_connect($host,$username,$password,$db);
 if (!$con)
@@ -31,52 +31,66 @@ if($q == "getRegions") {
 	}
 }
 if($q == "getRankings") {
+	//Getting Time	
+	$time = $_POST['time'];
+	
+	//Getting current Country's Data and retrieving Ranking. More can be retrieved.
+	$curLocSQL = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6 as `Ranking` from Averages  where Country = '".$_POST['country']."' order by `Ranking` ASC";
+	$result = mysqli_query($con,$curLocSQL);
+	$currCountryData = mysqli_fetch_array($result);
+	$cur_Ranking = $currCountryData['Ranking'];
+	
+	//Retrieving Current Price. If the Price is Not available, N/A will be printed.
+	$cur_PriceSQL = "Select Price from foodPrice where Country = '".$_POST['country']."'";
+	$result = mysqli_query($con,$cur_PriceSQL);
+	$row = mysqli_fetch_array($result);
+	$cur_Price = $row['Price'];
+	if($cur_Price == "") $cur_Price = "N/A";
+	
+	//Retrieving Country Cards and comparing Values as compared to current country data.
 	$region = $_POST['region'];
-	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6,Price as `Ranking` from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
+	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6 as `Ranking`,Price from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
 	$result = mysqli_query($con,$sql);
-
-	// echo "<table>";
-	// echo '<tr>';
-	// 	echo '<th class = "Country">Country</th>';
-	// 	echo '<th class = "CPI">CPI</th>';
-	// 	echo '<th class = "RI">RI</th>';
-	// 	echo '<th class = "CPPRI">CPPRI</th>';
-	// 	echo '<th class = "GI">GI</th>';
-	// 	echo '<th class = "RPI">RPI</th>';
-	// 	echo '<th class = "LPP">LPP</th>';
-	// 	echo '<th class = "Ranking">Ranking</th>';
-	// 	echo '<th class = "Price">Price</th>';
-	// 	echo '</tr>'; 
-	// while($row = mysqli_fetch_array($result))
-	// {
-	// 	echo '<tr>';
-	// 	echo '<td class = "Country">'.$row['Country'].'</td>';
-	// 	echo '<td class = "CPI">'.$row['CPI'].'</td>';
-	// 	echo '<td class = "RI">'.$row['RI'].'</td>';
-	// 	echo '<td class = "CPPRI">'.$row['CPPRI'].'</td>';
-	// 	echo '<td class = "GI">'.$row['GI'].'</td>';
-	// 	echo '<td class = "RPI">'.$row['RPI'].'</td>';
-	// 	echo '<td class = "LPP">'.$row['LPP'].'</td>';
-	// 	echo '<td class = "Ranking">'.$row['Ranking'].'</td>';
-	// 	echo '<td class = "Price">'.$row['Price'].'</td>';
-	// 	echo '</tr>';
-	// }
-	// echo "</table>";
-	// 
-	while($row = mysqli_fetch_array($result)) {
-		echo '<div class="destination-suggestion">';
-		echo '<div class="suggestion-content">';
-		echo '<h1>' . $row['Country'] . '</h1>';
-		echo '<table>';
-		echo '<tr>';
-			echo '<td class="what">Average Daily Spending</td>';
-			echo '<td>$'.$row['Price'].'</td>';
-		echo '</tr>';
-		echo '</table>';
-		echo '</div>';
-		echo '<div class="suggestion-view-more">';
-		echo '</div>';
-		echo '</div>';
+	if($cur_Price == "N/A") {
+		while($row = mysqli_fetch_array($result)) {
+			echo '<div class="destination-suggestion">';
+			echo '<div class="suggestion-content">';
+			echo '<h1>' . $row['Country'] . '</h1>';
+			echo '<table>';
+			echo '<tr>';
+				echo '<td class="what">Average Daily Spending</td>';
+				echo '<td>$'.$row['Price'].'</td>';
+			echo '</tr>';
+			echo '<tr>';
+				echo '<td class="what">Predicted Food Holiday Spending</td>';
+				echo '<td>$'.($row['Price']*$time[0]*7).'</td>';
+			echo '</tr>';
+			echo '</table>';
+			echo '</div>';
+			echo '<div class="suggestion-view-more">';
+			echo '</div>';
+			echo '</div>';
+		}
+	} else {
+		while($row = mysqli_fetch_array($result)) {
+			echo '<div class="destination-suggestion">';
+			echo '<div class="suggestion-content">';
+			echo '<h1>' . $row['Country'] . '</h1>';
+			echo '<table>';
+			echo '<tr>';
+				echo '<td class="what">Average Daily Spending</td>';
+				echo '<td>$'.$row['Price'].'(You\'re Saving: '.($cur_Price-$row['Price']).')</td>';
+			echo '</tr>';
+			echo '<tr>';
+				echo '<td class="what">Predicted Food Holiday Spending</td>';
+				echo '<td>$'.($row['Price']*$time[0]*7).'</td>';
+			echo '</tr>';
+			echo '</table>';
+			echo '</div>';
+			echo '<div class="suggestion-view-more">';
+			echo '</div>';
+			echo '</div>';
+		}
+		}
 	}
-}
 ?>
