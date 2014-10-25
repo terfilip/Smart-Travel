@@ -107,7 +107,7 @@ html, body {
   margin-bottom: 20px;
 }
 .destination-suggestion {
-  height: 120px;
+  height: 165px;
   width: 600px;
   border: 1px solid rgba(0,0,0,0.1);
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.30);
@@ -139,7 +139,7 @@ html, body {
   float: left;
   width: 35px;
   border-left: 1px dashed rgba(0,0,0,0.2);
-  height: 117px;
+  height: 165px;
   margin-top: 1px;
 }
 .suggestion-content table {
