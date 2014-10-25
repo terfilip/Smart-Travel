@@ -78,3 +78,35 @@ html, body {
 .progress div {
   color: #ffffff;
 }
+
+.content-view {
+  position: relative;
+  width: 800px;
+  min-height: 250px;
+  padding: 25px 50px 50px 50px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.60);
+  -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.60);
+  box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.60);
+  z-index: 2;
+}
+.content-view h1 {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.destination-suggestion {
+  height: 100px;
+  width: 600px;
+  border: 1px solid rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.30);
+  -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.30);
+  box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.30);
+  z-index: 2;
+  margin: 0 auto;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}

@@ -6,25 +6,25 @@ var loadContent = function() {
 $('document').ready(function(){
 
   $.ajax({
-    type: 'GET',
+    type: "POST",
     url: "/smarttravel/php/core.php",
-    data: {
-      q:"getCountries"
-    }, 
-    success: function(data) {
+    data: { 
+      q: "getCountries"}
+    })
+    .done(function( data ) {
       console.log(data);
       $('.change[name=departure]').append(data);
-    }
   });
+
   $.ajax({
-    type: 'GET',
+    type: "POST",
     url: "/smarttravel/php/core.php",
-    data: {
-      q:"getRegions"
-    }, 
-    success: function(data) {
+    data: { 
+      q: "getRegions"}
+    })
+    .done(function( data ) {
+      console.log(data);
       $('.change[name=destination]').append(data);
-    }
   });
 
   $('.change').niceselect();
