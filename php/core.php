@@ -96,6 +96,7 @@ if($q == "getRankings") {
     while($row = mysqli_fetch_array($result)) {
 
             $resVal = get_currency('USD', $originCurrency, $row['Price']);
+            $anotherResVal = get_currency('USD', $originCurrency, $row['HotelPrice']);
 
       echo '<div class="destination-suggestion">';
       echo '<div class="suggestion-content">';
@@ -109,6 +110,14 @@ if($q == "getRankings") {
       echo '<tr>';
         echo '<td class="what">Predicted Food Holiday Spending</td>';
         echo '<td>'.number_format(($resVal*$time[0]*7),2).' '.$originCurrency.'</td>';
+      echo '</tr>';
+      echo '<tr>';
+        echo '<td class="what">Average Hotel Price</td>';
+        echo '<td>'.number_format($anotherResVal,2).' ' .$originCurrency.'</td>';
+      echo '</tr>';
+      echo '<tr>';
+        echo '<td class="what">Predicted Hotel Price</td>';
+        echo '<td>'.number_format($anotherResVal*$time[0]*7,2).' '.$originCurrency.'</td>';
       echo '</tr>';
       echo '</table>';
       echo '</div>';

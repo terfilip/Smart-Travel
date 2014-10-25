@@ -51,6 +51,15 @@ $('document').ready(function(){
   
 })
 
+
+$('.lul').hover(
+  function() {
+    console.log(':)');
+  }, function() {
+    console.log(':(');
+})
+
+
 $('.search-submit').click(function() {
   $('.progress').fadeIn(150);
 
@@ -79,13 +88,6 @@ $('.search-submit').click(function() {
 })
 
 function getContentView(data) {
-
   $('.content-view').fadeIn(200);
   $('#cardlist').html(data);
 }
-
-$('.suggestion-view-more').hover(function() {
-  console.log(':)');
-}, function() {
-  console.log(':(');
-});
