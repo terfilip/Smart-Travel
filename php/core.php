@@ -53,21 +53,36 @@ if($q == "getRankings") {
 
 	//Retrieving Country Cards and comparing Values as compared to current country data.
 	$region = $_POST['region'];
+    $country = $_POST['country'];
+    if (strpos($country, 'USA') !== false) {
+        $country = substr($country,0,2);
+    }
+
 	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6 as `Ranking`,Price from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
-	$result = mysqli_query($con,$sql);
+	$currencyq = "SELECT Currency FROM Currs WHERE Country = '".$_POST['country']."'";
+    $currencyCodes = mysqli_query($con,$currencyq);
+    $result = mysqli_query($con,$sql);
+
+    $originCurrency = mysqli_fetch_array($currencyCodes)['Currency'];
 	if($cur_Price == "N/A") {
 		while($row = mysqli_fetch_array($result)) {
+
+            //$res = mysqli_query($con,"SELECT Currency FROM Currs WHERE Country = '".$row['Country']."'");
+            //$destCurrency = mysqli_fetch_array($res)['Currency'];
+
+            $resVal = get_currency('USD',$originCurrency,$row['Price']);
+
 			echo '<div class="destination-suggestion">';
 			echo '<div class="suggestion-content">';
 			echo '<h1>' . $row['Country'] . '</h1>';
 			echo '<table>';
 			echo '<tr>';
 				echo '<td class="what">Average Daily Spending</td>';
-				echo '<td>$'.number_format($row['Price'],2).'</td>';
+				echo '<td>'.number_format($resVal,2).' '.$originCurrency.'</td>';
 			echo '</tr>';
 			echo '<tr>';
 				echo '<td class="what">Predicted Food Holiday Spending</td>';
-				echo '<td>$'.number_format(($row['Price']*$time[0]*7),2).'</td>';
+				echo '<td>'.number_format(($resVal*$time[0]*7),2).' '.$originCurrency.'</td>';
 			echo '</tr>';
 			echo '</table>';
 			echo '</div>';
@@ -77,17 +92,20 @@ if($q == "getRankings") {
 		}
 	} else {
 		while($row = mysqli_fetch_array($result)) {
+
+            $resVal = get_currency('USD', $originCurrency, $row['Price']);
+
 			echo '<div class="destination-suggestion">';
 			echo '<div class="suggestion-content">';
 			echo '<h1>' . $row['Country'] . '</h1>';
 			echo '<table>';
 			echo '<tr>';
 				echo '<td class="what">Average Daily Spending</td>';
-				echo '<td>$'.number_format($row['Price'],2).'(You\'re Saving: $'.number_format(($cur_Price-$row['Price']),2).')</td>';
+				echo '<td>'.number_format($resVal,2).' '.$originCurrency.' (You\'re Saving: '.number_format(($cur_Price-$resVal),2).' '.$originCurrency.')</td>';
 			echo '</tr>';
 			echo '<tr>';
 				echo '<td class="what">Predicted Food Holiday Spending</td>';
-				echo '<td>$'.number_format(($row['Price']*$time[0]*7),2).'</td>';
+				echo '<td>'.number_format(($resVal*$time[0]*7),2).' '.$originCurrency.'</td>';
 			echo '</tr>';
 			echo '</table>';
 			echo '</div>';
@@ -95,6 +113,32 @@ if($q == "getRankings") {
 			echo '</div>';
 			echo '</div>';
 		}
-		}
+	 }
 	}
+
+    function get_currency($from_Currency, $to_Currency, $amount) {
+        $amount = urlencode($amount);
+        $from_Currency = urlencode($from_Currency);
+        $to_Currency = urlencode($to_Currency);
+
+        $url = "http://www.google.com/finance/converter?a=$amount&from=$from_Currency&to=$to_Currency";
+
+        $ch = curl_init();
+        $timeout = 0;
+        curl_setopt ($ch, CURLOPT_URL, $url);
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        curl_setopt ($ch, CURLOPT_USERAGENT,
+                     "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        $rawdata = curl_exec($ch);
+        curl_close($ch);
+        $data = explode('bld>', $rawdata);
+        $data = explode($to_Currency, $data[1]);
+
+        return round($data[0], 2);
+    }
+
+// Call the function to get the currency converted
+//echo get_currency('USD', 'INR', 1);
 ?>
