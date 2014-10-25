@@ -86,4 +86,6 @@ function getContentView(data) {
 
 $('.suggestion-view-more').hover(function() {
   console.log(':)');
-}, )
+}, function() {
+  console.log(':(');
+});
