@@ -30,4 +30,13 @@ if($q == "getRegions") {
 		echo '<option>'.$row['Region'].'</option>';
 	}
 }
+if($q == "getRankings") {
+	$region = $_POST['region'];
+	$sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6 as `Ranking` from Averages where region = '".$region."' order by `Ranking` ASC";
+	
+	while($row = mysqli_fetch_array($result))
+	{
+		echo '<option>'.$row['Region'].'</option>';
+	}
+}
 ?>
