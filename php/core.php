@@ -83,7 +83,8 @@ if($q == "getRankings") {
 			echo '<table>';
 			echo '<tr>';
 				echo '<td class="what">Average Daily Spending</td>';
-				echo '<td>$'.$row['Price'].'(You\'re Saving: '.($cur_Price-$row['Price']).')</td>';
+				echo '<td width="60px">$'.$row['Price'].'</td>';
+				echo '<td>Saving '.($cur_Price-$row['Price']).'</td>';
 			echo '</tr>';
 			echo '<tr>';
 				echo '<td class="what">Predicted Food Holiday Spending</td>';
