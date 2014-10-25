@@ -1,6 +1,6 @@
 <?php
 $q = $_POST['q'];
-$host = "178.62.105.247/";
+$host = "178.62.105.247";
 $username = "hack";
 $password = "hack";
 $db = "hackathon";
