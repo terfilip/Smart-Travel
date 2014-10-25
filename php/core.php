@@ -1,5 +1,5 @@
 <?php
-$q = $_GET['q'];
+$q = $_POST['q'];
 $host = "192.168.1.3";
 $username = "root";
 $password = "password";
@@ -14,7 +14,8 @@ mysqli_select_db($con,$db);
 
 if($q == "getCountries") {
 	$sql = "Select Country from Countries";
-	mysqli_query($con,$sql);
+	$result = mysqli_query($con,$sql);
+	
 	while($row = mysqli_fetch_array($result))
 	{
 		echo '<option>'.$row['Country'].'</option>';
@@ -23,7 +24,7 @@ if($q == "getCountries") {
 
 if($q == "getRegions") {
 	$sql = "Select Region from Regions";
-	mysqli_query($con,$sql);
+	$result = mysqli_query($con,$sql);
 	while($row = mysqli_fetch_array($result))
 	{
 		echo '<option>'.$row['Region'].'</option>';
