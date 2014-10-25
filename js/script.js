@@ -3,31 +3,56 @@ var loadContent = function() {
   console.log("");
 };
 
-$('document').ready(function(){
+function getCountries() {
 
   $.ajax({
     type: "POST",
-    url: "/smarttravel/php/core.php",
+    url: "./php/core.php",
     data: { 
       q: "getCountries"}
     })
     .done(function( data ) {
       console.log(data);
-      $('.change[name=departure]').append(data);
+      $('#dep').html(data);
+      getRegions();
   });
+
+}
+
+function getRegions() {
 
   $.ajax({
     type: "POST",
-    url: "/smarttravel/php/core.php",
+    url: "./php/core.php",
     data: { 
       q: "getRegions"}
     })
     .done(function( data ) {
       console.log(data);
-      $('.change[name=destination]').append(data);
+      $('#des').append(data);
+      visualFormatting();
   });
 
-  $('.change').niceselect();
+}
+
+function visualFormatting() {
+  $('#dep').niceselect();
+  $('#des').niceselect();
+  $('#time').niceselect();
+
+  $('.placeholder-select').css('display', 'none');
+  $('#dep').css('display', 'inline');
+  $('#des').css('display', 'inline');  
+  
+}
+
+$('document').ready(function(){
+
+  $('.placeholder-select').niceselect();
+
+  getCountries(); 
+
+  
 })
 
 $('.search-submit').click(function() {
