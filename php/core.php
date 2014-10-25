@@ -15,10 +15,14 @@ mysqli_select_db($con,$db);
 if($q == "getCountries") {
 	$sql = "Select Country from Countries";
 	$result = mysqli_query($con,$sql);
-	
+
 	while($row = mysqli_fetch_array($result))
 	{
-		echo '<option>'.$row['Country'].'</option>';
+        $cell = $row['Country'];
+        if (strlen($cell) <= 2) {
+            $cell = $cell.", USA";
+        }
+		echo '<option>'.$cell.'</option>';
 	}
 }
 
@@ -46,7 +50,7 @@ if($q == "getRankings") {
 	// 	echo '<th class = "LPP">LPP</th>';
 	// 	echo '<th class = "Ranking">Ranking</th>';
 	// 	echo '<th class = "Price">Price</th>';
-	// 	echo '</tr>'; 
+	// 	echo '</tr>';
 	// while($row = mysqli_fetch_array($result))
 	// {
 	// 	echo '<tr>';
@@ -62,7 +66,7 @@ if($q == "getRankings") {
 	// 	echo '</tr>';
 	// }
 	// echo "</table>";
-	// 
+	//
 	while($row = mysqli_fetch_array($result)) {
 		echo '<div class="destination-suggestion">';
 		echo '<div class="suggestion-content">';
