@@ -1,8 +1,8 @@
 <?php
 $q = $_POST['q'];
-$host = "192.168.50.239";
-$username = "root";
-$password = "password";
+$host = "localhost";
+$username = "hack";
+$password = "hack";
 $db = "hackathon";
 $con = mysqli_connect($host,$username,$password,$db);
 if (!$con)
@@ -64,19 +64,7 @@ if($q == "getRankings") {
 	// echo "</table>";
 	// 
 	while($row = mysqli_fetch_array($result)) {
-		echo '<div class="destination-suggestion">';
-		echo '<div class="suggestion-content">';
-		echo '<h1>' . $row['Country'] . '</h1>';
-		echo '<table>';
-		echo '<tr>';
-			echo '<td class="what">Average Daily Spending</td>';
-			echo '<td>$'.$row['Price'].'</td>';
-		echo '</tr>';
-		echo '</table>';
-		echo '</div>';
-		echo '<div class="suggestion-view-more">';
-		echo '</div>';
-		echo '</div>';
+
 	}
 }
 ?>
