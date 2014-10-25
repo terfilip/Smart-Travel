@@ -93,6 +93,7 @@ if($q == "getRankings") {
 			echo '</table>';
 			echo '</div>';
 			echo '<div class="suggestion-view-more">';
+			echo '&nbsp;';
 			echo '</div>';
 			echo '</div>';
 		}

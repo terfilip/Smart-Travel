@@ -83,3 +83,7 @@ function getContentView(data) {
   $('.content-view').fadeIn(200);
   $('#cardlist').html(data);
 }
+
+$('.suggestion-view-more').hover(function() {
+  console.log(':)');
+}, )
