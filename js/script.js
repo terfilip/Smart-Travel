@@ -8,7 +8,7 @@ function getCountries() {
       q: "getCountries"}
     })
     .done(function( data ) {
-      console.log(data);
+      // console.log(data);
       $('#dep').html(data);
       getRegions();
   });
@@ -24,7 +24,7 @@ function getRegions() {
       q: "getRegions"}
     })
     .done(function( data ) {
-      console.log(data);
+      // console.log(data);
       $('#des').append(data);
       visualFormatting();
   });
@@ -50,15 +50,6 @@ $('document').ready(function(){
 
   
 })
-
-
-$('.lul').hover(
-  function() {
-    console.log(':)');
-  }, function() {
-    console.log(':(');
-})
-
 
 $('.search-submit').click(function() {
   $('.progress').fadeIn(150);
@@ -91,3 +82,11 @@ function getContentView(data) {
   $('.content-view').fadeIn(200);
   $('#cardlist').html(data);
 }
+
+$(document).on('mouseenter','.suggestion-view-more',function() {
+  console.log(':( Wheres my implementation?');
+});
+
+$(document).on('click','.suggestion-view-more',function() {
+  $('.destination-suggestion').toggle('slide');
+});

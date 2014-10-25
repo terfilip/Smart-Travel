@@ -154,3 +154,8 @@ html, body {
 .suggestion-content .what {
   width: 230px;
 }
+.click-meh {
+  height: 165px;
+  width: 35px;
+  display: block;
+}
