@@ -1,8 +1,4 @@
 
-var loadContent = function() {
-  console.log("");
-};
-
 function getCountries() {
 
   $.ajax({
@@ -57,10 +53,30 @@ $('document').ready(function(){
 
 $('.search-submit').click(function() {
   $('.progress').fadeIn(150);
-  setTimeout(function() {
-    $('.progress').fadeOut(200);
-    $('.search').fadeOut(200);
-  }, 3000);
-  
+
+  $.ajax({
+    type: "POST",
+    url: "./php/core.php",
+    data: { 
+      country: $('.top:eq(1)').text(),
+      region: $('.top:eq(3)').text(),
+      time: $('.top:eq(4)').text(),
+      q: "getRankings"
+    }
+    })
+    .done(function( data ) {
+      $('.progress').fadeOut(200);
+      $('.search').fadeOut(200);
+      setTimeout(function() {
+        getContentView(data);
+      }, 200);
+      
+  });
 
 })
+
+function getContentView(data) {
+
+  $('.content-view').fadeIn(200);
+  $('#cardlist').html(data);
+}

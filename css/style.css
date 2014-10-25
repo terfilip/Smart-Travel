@@ -53,7 +53,8 @@ html, body {
   cursor: pointer;
   -webkit-box-shadow: inset 0 -2px #2a8bcc;
   box-shadow: inset 0 -2px #2a8bcc;
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 .flat-button:active {
   top: 1px;
@@ -117,7 +118,37 @@ html, body {
   border-radius: 3px;
   margin-bottom: 18px;
 }
+.destination-suggestion h1 {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
+}
 .value_wrapper {
   overflow-y: scroll;
   max-height: 300px;
+}
+.suggestion-content {
+  float: left;
+  width: 563px;
+  height: 100%;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.suggestion-view-more {
+  float: left;
+  width: 35px;
+  border-left: 1px dashed rgba(0,0,0,0.2);
+  height: 100px;
+  margin-top: 1px;
+}
+.suggestion-content table {
+}
+.suggestion-content td {
+  text-shadow: 0px -1px 0px rgba(0,0,0,0.1);
+  color: rgba(10,10,10,0.8);
+  font-size: 14px;
+}
+.suggestion-content .what {
+  width: 200px;
 }
