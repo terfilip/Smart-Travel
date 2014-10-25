@@ -43,9 +43,12 @@ if($q == "getRankings") {
   $result = mysqli_query($con,$curLocSQL);
   $currCountryData = mysqli_fetch_array($result);
   $cur_Ranking = $currCountryData['Ranking'];
-
+  $country = $_POST['country'];
+  if (strpos($country, 'USA') !== false) {
+      $country = 'United States';
+  }
   //Retrieving Current Price. If the Price is Not available, N/A will be printed.
-  $cur_PriceSQL = "Select Price from foodPrice where Country = '".$_POST['country']."'";
+  $cur_PriceSQL = "Select Price from foodPrice where Country = '".$country."'";
   $result = mysqli_query($con,$cur_PriceSQL);
   $row = mysqli_fetch_array($result);
   $cur_Price = $row['Price'];
@@ -53,17 +56,15 @@ if($q == "getRankings") {
 
   //Retrieving Country Cards and comparing Values as compared to current country data.
   $region = $_POST['region'];
-    $country = $_POST['country'];
-    if (strpos($country, 'USA') !== false) {
-        $country = substr($country,0,2);
-    }
+
 
   $sql = "SELECT  *, (CPI+RI+CPPRI+GI+RPI+LPP)/6 as `Ranking`,Price from Averages INNER JOIN foodPrice on Averages.Country = foodPrice.Country where Region = '".$region."' order by `Ranking` ASC";
-  $currencyq = "SELECT Currency FROM Currs WHERE Country = '".$_POST['country']."'";
+  $currencyq = "SELECT Currency FROM Currs WHERE Country = '".$country."'";
     $currencyCodes = mysqli_query($con,$currencyq);
     $result = mysqli_query($con,$sql);
 
     $originCurrency = mysqli_fetch_array($currencyCodes)['Currency'];
+    $cur_Price = get_currency('USD',$originCurrency,$cur_Price);
   if($cur_Price == "N/A") {
     while($row = mysqli_fetch_array($result)) {
 
