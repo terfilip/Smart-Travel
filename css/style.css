@@ -61,6 +61,12 @@ html, body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+#dep {
+  display: none;
+}
+#des {
+  display: none;
+}
 .search-submit {
   margin-top: 10px;
   margin-left: 350px;
@@ -81,6 +87,7 @@ html, body {
 
 .content-view {
   position: relative;
+  display: none;
   width: 800px;
   min-height: 250px;
   padding: 25px 50px 50px 50px;
@@ -109,4 +116,8 @@ html, body {
   margin: 0 auto;
   border-radius: 3px;
   margin-bottom: 18px;
+}
+.value_wrapper {
+  overflow-y: scroll;
+  max-height: 300px;
 }

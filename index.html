@@ -26,8 +26,11 @@
       <tr class="search-alternative">
         <td class="search-title">Departure</td>
         <td>
-          <select class='change' name='departure'>
-          <!-- Ajax stuff comes here -->
+          <select class='placeholder-select'>
+            <option value="placeholder">Loading...</option>
+          </select>
+          <select id='dep' class='change' name='departure'>
+
           </select>
         </td>
       </tr>
@@ -35,8 +38,10 @@
       <tr class="search-alternative">
         <td class="search-title">Destination</td>
         <td>
-          <select class='change' name='destination'>
-          <!-- Ajax stuff comes here -->
+          <select class='placeholder-select'>
+            <option value="placeholder" default>Loading...</option>
+          </select>
+          <select id='des' class='change' name='destination'>
           </select>  
         </td>
       </tr>
@@ -44,10 +49,15 @@
       <tr class="search-alternative">
         <td class="search-title">Time</td>
         <td>
-          <select class='change' name='time'>
+          <select id="time" class='change' name='time'>
             <option value="1">1 week</option>
             <option value="2">2 weeks</option>
-            <option value="3">3 weeks</option>
+            <option value="placeholder">3 weeks</option>
+            <option value="4">4 weeks</option>
+            <option value="5">5 weeks</option>
+            <option value="6">6 weeks</option>
+            <option value="7">7 weeks</option>
+            <option value="8">8 weeks</option>
           </select>
         </td>
       </tr>
